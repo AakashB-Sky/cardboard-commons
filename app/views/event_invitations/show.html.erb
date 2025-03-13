@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Event invitation #<%= @the_event_invitation.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/event_invitations">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_event_invitation/<%= @the_event_invitation.id %>">
+          Delete event invitation
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Event
+      </dt>
+      <dd>
+        <%= @the_event_invitation.event_id %>
+      </dd>
+
+      <dt>
+        Guest
+      </dt>
+      <dd>
+        <%= @the_event_invitation.guest_id %>
+      </dd>
+
+      <dt>
+        Status
+      </dt>
+      <dd>
+        <%= @the_event_invitation.status %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_event_invitation.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_event_invitation.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit event invitation
+    </h2>
+
+    <form action="/modify_event_invitation/<%= @the_event_invitation.id %>"  method="post" >
+      <div>
+        <label for="event_id_box">
+          Event
+        </label>
+
+        <input type="text" id="event_id_box" name="query_event_id" value="<%= @the_event_invitation.event_id %>">
+      </div>
+
+      <div>
+        <label for="guest_id_box">
+          Guest
+        </label>
+
+        <input type="text" id="guest_id_box" name="query_guest_id" value="<%= @the_event_invitation.guest_id %>">
+      </div>
+
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status" value="<%= @the_event_invitation.status %>">
+      </div>
+
+      <button>
+        Update event invitation
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,326 @@
+<div>
+  <div>
+    <h1>
+      Event #<%= @the_event.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/events">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_event/<%= @the_event.id %>">
+          Delete event
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Date
+      </dt>
+      <dd>
+        <%= @the_event.date %>
+      </dd>
+
+      <dt>
+        Time
+      </dt>
+      <dd>
+        <%= @the_event.time %>
+      </dd>
+
+      <dt>
+        Game
+      </dt>
+      <dd>
+        <%= @the_event.game_id %>
+      </dd>
+
+      <dt>
+        Skill level
+      </dt>
+      <dd>
+        <%= @the_event.skill_level %>
+      </dd>
+
+      <dt>
+        Host
+      </dt>
+      <dd>
+        <%= @the_event.host_id %>
+      </dd>
+
+      <dt>
+        Seats available
+      </dt>
+      <dd>
+        <%= @the_event.seats_available %>
+      </dd>
+
+      <dt>
+        Seats total
+      </dt>
+      <dd>
+        <%= @the_event.seats_total %>
+      </dd>
+
+      <dt>
+        Neighborhood
+      </dt>
+      <dd>
+        <%= @the_event.neighborhood %>
+      </dd>
+
+      <dt>
+        Street address
+      </dt>
+      <dd>
+        <%= @the_event.street_address %>
+      </dd>
+
+      <dt>
+        Address line 2
+      </dt>
+      <dd>
+        <%= @the_event.address_line_2 %>
+      </dd>
+
+      <dt>
+        City
+      </dt>
+      <dd>
+        <%= @the_event.city %>
+      </dd>
+
+      <dt>
+        State
+      </dt>
+      <dd>
+        <%= @the_event.state %>
+      </dd>
+
+      <dt>
+        Zip code
+      </dt>
+      <dd>
+        <%= @the_event.zip_code %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_event.description %>
+      </dd>
+
+      <dt>
+        Visibility
+      </dt>
+      <dd>
+        <%= @the_event.visibility %>
+      </dd>
+
+      <dt>
+        Approval requirement
+      </dt>
+      <dd>
+        <%= @the_event.approval_requirement %>
+      </dd>
+
+      <dt>
+        Status
+      </dt>
+      <dd>
+        <%= @the_event.status %>
+      </dd>
+
+      <dt>
+        Rsvps count
+      </dt>
+      <dd>
+        <%= @the_event.rsvps_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_event.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_event.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit event
+    </h2>
+
+    <form action="/modify_event/<%= @the_event.id %>"  method="post" >
+      <div>
+        <label for="date_box">
+          Date
+        </label>
+
+        <input type="date" id="date_box" name="query_date" value="<%= @the_event.date %>">
+      </div>
+
+      <div>
+        <label for="time_box">
+          Time
+        </label>
+
+        <input type="time" id="time_box" name="query_time" value="<%= @the_event.time %>">
+      </div>
+
+      <div>
+        <label for="game_id_box">
+          Game
+        </label>
+
+        <input type="text" id="game_id_box" name="query_game_id" value="<%= @the_event.game_id %>">
+      </div>
+
+      <div>
+        <label for="skill_level_box">
+          Skill level
+        </label>
+
+        <input type="text" id="skill_level_box" name="query_skill_level" value="<%= @the_event.skill_level %>">
+      </div>
+
+      <div>
+        <label for="host_id_box">
+          Host
+        </label>
+
+        <input type="text" id="host_id_box" name="query_host_id" value="<%= @the_event.host_id %>">
+      </div>
+
+      <div>
+        <label for="seats_available_box">
+          Seats available
+        </label>
+
+        <input type="text" id="seats_available_box" name="query_seats_available" value="<%= @the_event.seats_available %>">
+      </div>
+
+      <div>
+        <label for="seats_total_box">
+          Seats total
+        </label>
+
+        <input type="text" id="seats_total_box" name="query_seats_total" value="<%= @the_event.seats_total %>">
+      </div>
+
+      <div>
+        <label for="neighborhood_box">
+          Neighborhood
+        </label>
+
+        <input type="text" id="neighborhood_box" name="query_neighborhood" value="<%= @the_event.neighborhood %>">
+      </div>
+
+      <div>
+        <label for="street_address_box">
+          Street address
+        </label>
+
+        <input type="text" id="street_address_box" name="query_street_address" value="<%= @the_event.street_address %>">
+      </div>
+
+      <div>
+        <label for="address_line_2_box">
+          Address line 2
+        </label>
+
+        <input type="text" id="address_line_2_box" name="query_address_line_2" value="<%= @the_event.address_line_2 %>">
+      </div>
+
+      <div>
+        <label for="city_box">
+          City
+        </label>
+
+        <input type="text" id="city_box" name="query_city" value="<%= @the_event.city %>">
+      </div>
+
+      <div>
+        <label for="state_box">
+          State
+        </label>
+
+        <input type="text" id="state_box" name="query_state" value="<%= @the_event.state %>">
+      </div>
+
+      <div>
+        <label for="zip_code_box">
+          Zip code
+        </label>
+
+        <input type="text" id="zip_code_box" name="query_zip_code" value="<%= @the_event.zip_code %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description"><%= @the_event.description %></textarea>
+      </div>
+
+      <div>
+        <label for="visibility_box">
+          Visibility
+        </label>
+
+        <input type="text" id="visibility_box" name="query_visibility" value="<%= @the_event.visibility %>">
+      </div>
+
+      <div>
+        <label for="approval_requirement_box">
+          Approval requirement
+        </label>
+
+        <input type="text" id="approval_requirement_box" name="query_approval_requirement" value="<%= @the_event.approval_requirement %>">
+      </div>
+
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status" value="<%= @the_event.status %>">
+      </div>
+
+      <div>
+        <label for="rsvps_count_box">
+          Rsvps count
+        </label>
+
+        <input type="text" id="rsvps_count_box" name="query_rsvps_count" value="<%= @the_event.rsvps_count %>">
+      </div>
+
+      <button>
+        Update event
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

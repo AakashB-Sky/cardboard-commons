@@ -1,0 +1,358 @@
+<div>
+  <div>
+    <h1>
+      List of all events
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new event
+    </h2>
+
+    <form action="/insert_event" method="post">
+      <div>
+        <label for="date_box">
+          Date
+        </label>
+
+        <input type="date" id="date_box" name="query_date">
+      </div>
+
+      <div>
+        <label for="time_box">
+          Time
+        </label>
+
+        <input type="time" id="time_box" name="query_time">
+      </div>
+
+      <div>
+        <label for="game_id_box">
+          Game
+        </label>
+
+        <input type="text" id="game_id_box" name="query_game_id">
+      </div>
+
+      <div>
+        <label for="skill_level_box">
+          Skill level
+        </label>
+
+        <input type="text" id="skill_level_box" name="query_skill_level">
+      </div>
+
+      <div>
+        <label for="host_id_box">
+          Host
+        </label>
+
+        <input type="text" id="host_id_box" name="query_host_id">
+      </div>
+
+      <div>
+        <label for="seats_available_box">
+          Seats available
+        </label>
+
+        <input type="text" id="seats_available_box" name="query_seats_available">
+      </div>
+
+      <div>
+        <label for="seats_total_box">
+          Seats total
+        </label>
+
+        <input type="text" id="seats_total_box" name="query_seats_total">
+      </div>
+
+      <div>
+        <label for="neighborhood_box">
+          Neighborhood
+        </label>
+
+        <input type="text" id="neighborhood_box" name="query_neighborhood">
+      </div>
+
+      <div>
+        <label for="street_address_box">
+          Street address
+        </label>
+
+        <input type="text" id="street_address_box" name="query_street_address">
+      </div>
+
+      <div>
+        <label for="address_line_2_box">
+          Address line 2
+        </label>
+
+        <input type="text" id="address_line_2_box" name="query_address_line_2">
+      </div>
+
+      <div>
+        <label for="city_box">
+          City
+        </label>
+
+        <input type="text" id="city_box" name="query_city">
+      </div>
+
+      <div>
+        <label for="state_box">
+          State
+        </label>
+
+        <input type="text" id="state_box" name="query_state">
+      </div>
+
+      <div>
+        <label for="zip_code_box">
+          Zip code
+        </label>
+
+        <input type="text" id="zip_code_box" name="query_zip_code">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="visibility_box">
+          Visibility
+        </label>
+
+        <input type="text" id="visibility_box" name="query_visibility">
+      </div>
+
+      <div>
+        <label for="approval_requirement_box">
+          Approval requirement
+        </label>
+
+        <input type="text" id="approval_requirement_box" name="query_approval_requirement">
+      </div>
+
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status">
+      </div>
+
+      <div>
+        <label for="rsvps_count_box">
+          Rsvps count
+        </label>
+
+        <input type="text" id="rsvps_count_box" name="query_rsvps_count">
+      </div>
+
+      <button>
+        Create event
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Date
+        </th>
+
+        <th>
+          Time
+        </th>
+
+        <th>
+          Game
+        </th>
+
+        <th>
+          Skill level
+        </th>
+
+        <th>
+          Host
+        </th>
+
+        <th>
+          Seats available
+        </th>
+
+        <th>
+          Seats total
+        </th>
+
+        <th>
+          Neighborhood
+        </th>
+
+        <th>
+          Street address
+        </th>
+
+        <th>
+          Address line 2
+        </th>
+
+        <th>
+          City
+        </th>
+
+        <th>
+          State
+        </th>
+
+        <th>
+          Zip code
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Visibility
+        </th>
+
+        <th>
+          Approval requirement
+        </th>
+
+        <th>
+          Status
+        </th>
+
+        <th>
+          Rsvps count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_events.each do |an_event| %>
+      <tr>
+        <td>
+          <%= an_event.id %>
+        </td>
+
+        <td>
+          <%= an_event.date %>
+        </td>
+
+        <td>
+          <%= an_event.time %>
+        </td>
+
+        <td>
+          <%= an_event.game_id %>
+        </td>
+
+        <td>
+          <%= an_event.skill_level %>
+        </td>
+
+        <td>
+          <%= an_event.host_id %>
+        </td>
+
+        <td>
+          <%= an_event.seats_available %>
+        </td>
+
+        <td>
+          <%= an_event.seats_total %>
+        </td>
+
+        <td>
+          <%= an_event.neighborhood %>
+        </td>
+
+        <td>
+          <%= an_event.street_address %>
+        </td>
+
+        <td>
+          <%= an_event.address_line_2 %>
+        </td>
+
+        <td>
+          <%= an_event.city %>
+        </td>
+
+        <td>
+          <%= an_event.state %>
+        </td>
+
+        <td>
+          <%= an_event.zip_code %>
+        </td>
+
+        <td>
+          <%= an_event.description %>
+        </td>
+
+        <td>
+          <%= an_event.visibility %>
+        </td>
+
+        <td>
+          <%= an_event.approval_requirement %>
+        </td>
+
+        <td>
+          <%= an_event.status %>
+        </td>
+
+        <td>
+          <%= an_event.rsvps_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_event.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_event.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/events/<%= an_event.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

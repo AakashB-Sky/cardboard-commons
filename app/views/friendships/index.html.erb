@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all friendships
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new friendship
+    </h2>
+
+    <form action="/insert_friendship" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="friend_id_box">
+          Friend
+        </label>
+
+        <input type="text" id="friend_id_box" name="query_friend_id">
+      </div>
+
+      <button>
+        Create friendship
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Friend
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_friendships.each do |a_friendship| %>
+      <tr>
+        <td>
+          <%= a_friendship.id %>
+        </td>
+
+        <td>
+          <%= a_friendship.user_id %>
+        </td>
+
+        <td>
+          <%= a_friendship.friend_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_friendship.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_friendship.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/friendships/<%= a_friendship.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

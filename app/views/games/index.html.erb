@@ -1,0 +1,246 @@
+<div>
+  <div>
+    <h1>
+      List of all games
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new game
+    </h2>
+
+    <form action="/insert_game" method="post">
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image">
+      </div>
+
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title">
+      </div>
+
+      <div>
+        <label for="genre_box">
+          Genre
+        </label>
+
+        <input type="text" id="genre_box" name="query_genre">
+      </div>
+
+      <div>
+        <label for="complexity_box">
+          Complexity
+        </label>
+
+        <input type="text" id="complexity_box" name="query_complexity">
+      </div>
+
+      <div>
+        <label for="randomness_box">
+          Randomness
+        </label>
+
+        <input type="text" id="randomness_box" name="query_randomness">
+      </div>
+
+      <div>
+        <label for="min_players_box">
+          Min players
+        </label>
+
+        <input type="text" id="min_players_box" name="query_min_players">
+      </div>
+
+      <div>
+        <label for="max_players_box">
+          Max players
+        </label>
+
+        <input type="text" id="max_players_box" name="query_max_players">
+      </div>
+
+      <div>
+        <label for="duration_box">
+          Duration
+        </label>
+
+        <input type="text" id="duration_box" name="query_duration">
+      </div>
+
+      <div>
+        <label for="rating_box">
+          Rating
+        </label>
+
+        <input type="text" id="rating_box" name="query_rating">
+      </div>
+
+      <div>
+        <label for="website_box">
+          Website
+        </label>
+
+        <input type="text" id="website_box" name="query_website">
+      </div>
+
+      <div>
+        <label for="events_count_box">
+          Events count
+        </label>
+
+        <input type="text" id="events_count_box" name="query_events_count">
+      </div>
+
+      <button>
+        Create game
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Image
+        </th>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Genre
+        </th>
+
+        <th>
+          Complexity
+        </th>
+
+        <th>
+          Randomness
+        </th>
+
+        <th>
+          Min players
+        </th>
+
+        <th>
+          Max players
+        </th>
+
+        <th>
+          Duration
+        </th>
+
+        <th>
+          Rating
+        </th>
+
+        <th>
+          Website
+        </th>
+
+        <th>
+          Events count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_games.each do |a_game| %>
+      <tr>
+        <td>
+          <%= a_game.id %>
+        </td>
+
+        <td>
+          <%= a_game.image %>
+        </td>
+
+        <td>
+          <%= a_game.title %>
+        </td>
+
+        <td>
+          <%= a_game.genre %>
+        </td>
+
+        <td>
+          <%= a_game.complexity %>
+        </td>
+
+        <td>
+          <%= a_game.randomness %>
+        </td>
+
+        <td>
+          <%= a_game.min_players %>
+        </td>
+
+        <td>
+          <%= a_game.max_players %>
+        </td>
+
+        <td>
+          <%= a_game.duration %>
+        </td>
+
+        <td>
+          <%= a_game.rating %>
+        </td>
+
+        <td>
+          <%= a_game.website %>
+        </td>
+
+        <td>
+          <%= a_game.events_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_game.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_game.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/games/<%= a_game.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
