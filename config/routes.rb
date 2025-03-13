@@ -138,6 +138,6 @@ Rails.application.routes.draw do
 
   # get "/your_first_screen" => "pages#first"
 
-  get "/" => "events#home"
+  root to: "events#index"
   
 end
