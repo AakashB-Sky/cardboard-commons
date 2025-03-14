@@ -20,7 +20,7 @@ task(:fake_data => :environment) do
   Friendship.destroy_all
 
 
-  100.times do
+  300.times do
     x = Friendship.new
     x_inverse = Friendship.new
 
@@ -101,5 +101,28 @@ task(:fake_data => :environment) do
     x.save
   end
   puts "Added #{Event.all.count} fake events to the 'events' table."
+
+  # ------------------------------ destroy and populate the "event_registrations" table ------------------------------
+
+  Event.each do |an_event|
+    # host registration
+    x = Registration.new
+    x.event_id = an_event.id
+    x.user_id = an_event.host_id
+    x.save
+    
+
+    # guest registrations
+    counter = 0 # counter to track number of registrants
+    random_number = rand(0...an_event.seats_total) # generate a random number between 0 and event capacity, exclusive (host counts as registrant)
+    while counter < random_number
+      x = Registration.new
+      x.event_id = an_event.id
+      x.user_id = User.offset(rand(1..User.count)).first.id
+      x.save
+    end
+  end
+
+  puts "Added #{Registration.all.count} fake registrations for #{Registration.distinct.count(:event_id)} events."
 
 end
