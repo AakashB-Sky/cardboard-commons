@@ -104,9 +104,9 @@ task(:fake_data => :environment) do
 
   # ------------------------------ destroy and populate the "event_registrations" table ------------------------------
 
-  Event.each do |an_event|
+  Event.all.each do |an_event|
     # host registration
-    x = Registration.new
+    x = EventRegistration.new
     x.event_id = an_event.id
     x.user_id = an_event.host_id
     x.save
@@ -116,13 +116,14 @@ task(:fake_data => :environment) do
     counter = 0 # counter to track number of registrants
     random_number = rand(0...an_event.seats_total) # generate a random number between 0 and event capacity, exclusive (host counts as registrant)
     while counter < random_number
-      x = Registration.new
+      x = EventRegistration.new
       x.event_id = an_event.id
-      x.user_id = User.offset(rand(1..User.count)).first.id
+      x.user_id = User.offset(rand(User.count)).first.id
       x.save
+      counter = counter + 1
     end
   end
 
-  puts "Added #{Registration.all.count} fake registrations for #{Registration.distinct.count(:event_id)} events."
+  puts "Added #{EventRegistration.all.count} fake registrations for #{EventRegistration.distinct.count(:event_id)} events."
 
 end
